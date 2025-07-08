@@ -17,6 +17,6 @@ as part of my **#100DaysOfCode Challenge (Day 2)**.
 
 ## Screenshot
 
-![Screenshot](../day2.png)  
+![Screenshot](day 2.png)  
 
 

@@ -9,13 +9,12 @@ This is a simple GUI-based Scientific Calculator built using **Python** and **Tk
 - ✅ Constants: `π (pi)`, `e`
 - ✅ Radian ↔ Degree conversion (`toDeg()`, `toRad()`)
 
-## 🖼️ Screenshot
+## Screenshot
 ![screenshot](screenshot.png)
 
 ## 🛠️ How to Run
 
 1. Clone this repo:
 <pre>
-   ```bash
    git clone https://github.com/Mounil2005s/scientific-calculator.git
 </pre>

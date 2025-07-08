@@ -11,10 +11,3 @@ This is a simple GUI-based Scientific Calculator built using **Python** and **Tk
 
 ## Screenshot
 ![screenshot](screenshot.png)
-
-## 🛠️ How to Run
-
-1. Clone this repo:
-<pre>
-   git clone https://github.com/Mounil2005s/scientific-calculator.git
-</pre>

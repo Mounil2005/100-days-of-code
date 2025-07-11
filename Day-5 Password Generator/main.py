@@ -33,11 +33,19 @@ def generate_password(length):
         return "Please select at least one character type."
     return ''.join(random.choice(char_set) for _ in range(length))
 
+# if st.button("Generate Password"):
+#     password = generate_password(length)
+#     st.success(f"Generated Password: **{password}**")
+#     st.code(password, language='')
+#     st.caption("Click to copy manually.")
+
 if st.button("Generate Password"):
     password = generate_password(length)
+    st.session_state["password"] = password  # Save in session state
     st.success(f"Generated Password: **{password}**")
     st.code(password, language='')
     st.caption("Click to copy manually.")
+
 
 # --- Optional Save (simulated local memory) ---
 save = st.checkbox("Save this password (local session only)")
@@ -45,7 +53,12 @@ if save:
     site = st.text_input("Website / App")
     email = st.text_input("Email / Username")
     if site and email and st.button("Save Entry"):
-        st.session_state.setdefault("saved", []).append({"site": site, "email": email, "password": password})
+        st.session_state.setdefault("saved", []).append({
+            "site": site,
+            "email": email,
+            "password": st.session_state.get("password", "")
+})
+
         st.success("Saved locally!")
 
 # --- Display Saved ---
@@ -53,3 +66,4 @@ if "saved" in st.session_state:
     st.subheader("🔒 Saved Credentials (session only)")
     for item in st.session_state["saved"]:
         st.write(f"**{item['site']}** | {item['email']} | `{item['password']}`")
+

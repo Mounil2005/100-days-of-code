@@ -43,8 +43,8 @@ if st.button("Generate Password"):
     password = generate_password(length)
     st.session_state["password"] = password  # Save in session state
     st.success(f"Generated Password: **{password}**")
-    st.code(password, language='')
-    st.caption("Click to copy manually.")
+    #st.code(password, language='')
+    # st.caption("Click to copy manually.")
 
 
 # --- Optional Save (simulated local memory) ---

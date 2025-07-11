@@ -66,6 +66,7 @@ cols = 4
 for (text, row, col) in buttons:
     if text == "=":
         btn=tk.Button(root,text=text, width=10, height=2, bg="#add8e6", fg="#121212",font=("Arial",14),command=lambda: evaluate())
+        
     elif text=='C':
         btn=tk.Button(root,text=text, width=32, height=2, bg="#d1a24c", fg="#111111", font=("Arial",14),command=lambda: entry.delete(0,tk.END))
         btn.grid(row=row,column=col,columnspan=4,padx=5,pady=5)

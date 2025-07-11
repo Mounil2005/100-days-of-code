@@ -52,14 +52,22 @@ save = st.checkbox("Save this password (local session only)")
 if save:
     site = st.text_input("Website / App")
     email = st.text_input("Email / Username")
+    # if site and email and st.button("Save Entry"):
+    #     st.session_state.setdefault("saved", []).append({
+    #         "site": site,
+    #         "email": email,
+    #         "password": st.session_state.get("password", "")
     if site and email and st.button("Save Entry"):
-        st.session_state.setdefault("saved", []).append({
-            "site": site,
-            "email": email,
-            "password": st.session_state.get("password", "")
-})
+        if "password" in st.session_state and st.session_state["password"]:
+            st.session_state.setdefault("saved", []).append({
+                "site": site,
+                "email": email,
+                "password": st.session_state["password"]
+            })
+            st.success("Saved locally!")
+        else:
+            st.error("Please generate a password first!")
 
-        st.success("Saved locally!")
 
 # --- Display Saved ---
 if "saved" in st.session_state:

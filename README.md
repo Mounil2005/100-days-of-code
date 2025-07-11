@@ -9,7 +9,11 @@ Every day, I’ll be building and pushing a mini project — from beginner to ad
 
 | Day | Project Name               | Description                            | Link |
 |-----|----------------------------|----------------------------------------|------|
-| 1   | Scientific Calculator      | A GUI calculator built using Tkinter.  | [🔗 View](./Day-1%20Scientific%20Calculator) |
+| 1   | Scientific Calculator      | A GUI calculator built using Tkinter.  | [🔗 View](https://github.com/Mounil2005/100-days-of-code/tree/main/Day-1%20Scientific%20Calculator) |
+| 2   | To-Do List      | A GUI To-do List using Tkinter.  | [🔗 View](https://github.com/Mounil2005/100-days-of-code/tree/main/Day-2%20To-do%20List) |
+| 3   | Weather App      | A GUI Weather App built using Tkinter and openweather API.  | [🔗 View](https://github.com/Mounil2005/100-days-of-code/tree/main/Day-3%20Weather%20App) |
+| 4   | MP3 Player      | A GUI MP3 player built using Tkinter.  | [🔗 View](https://github.com/Mounil2005/100-days-of-code/tree/main/Day-4%20MP%203%20Player) |
+| 5   | Password Generator      | A Password Generator built using python and Streamlit.  | [🔗 View](https://github.com/Mounil2005/100-days-of-code/tree/main/Day-5%20Password%20Generator) |
 
 
 ---

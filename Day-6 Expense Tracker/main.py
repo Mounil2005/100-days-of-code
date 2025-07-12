@@ -5,21 +5,30 @@ from datetime import date
 st.title("💰 Expense Tracker")
 
 
-
-
 if "expenses" not in st.session_state:
     st.session_state["expenses"]=[]
 
 if "balance" not in st.session_state:
     st.session_state["balance"] = 0.0
 
-with st.expander("Set initial Balance"):
-    current_balance=st.number_input("Set Starting Balance",min_value=0.0, format="%.2f", value=st.session_state["balance"])
-    if st.button("Update Balance"):
-        st.session_state["balance"]=current_balance
-        st.success(f"Balance set to {current_balance:.2f}")
+if "balance_set" not in st.session_state:
+    st.session_state.balance_set = False
 
-amount=st.number_input("Enter amount", min_value=0.0, format="%.2f", placeholder="Enter amount")
+if not st.session_state.balance_set:
+    with st.expander("💰 Set initial Balance", expanded=True):        
+        user_input=st.text_input("Set Starting Balance", key="starting_balance")
+        try:
+            if st.button("Update Balance"):
+                current_balance = float(user_input)
+                st.session_state["balance"] = current_balance
+                st.session_state.balance_set = True  # Collapse next time
+                st.success(f"Balance set to {current_balance}")
+        except ValueError:
+            st.error("Please enter a valid number.")
+
+amount=st.text_input("Enter amount", placeholder="Enter amount")
+
+
 
 category=st.selectbox("Category", ["Food","Transport","Shopping","Bills","Other"])
 
@@ -33,23 +42,32 @@ trans_type=st.radio("Transaction Type",["Cash in","Cash out"])
 
 
 if st.button("Add Entry"):
-    new_expense={
-        "Amount":amount,
-        "Category":category,
-        "Description":description,
-        "Date":expense_date,
-        "Mode": mode,
-        "Type": trans_type
-    }
+    try:
+        if amount.strip()=="":
+            st.error("Amount field cannot be empty.")
+        else:
+            amount=float(amount)
+            new_expense={
+                
+                "Amount":amount,
+                "Category":category,
+                "Description":description,
+                "Date":expense_date,
+                "Mode": mode,
+                "Type": trans_type
+        }
+        if trans_type=="Cash in":
+            st.session_state.balance+=amount
+        else:
+            st.session_state.balance-=amount
 
-    if trans_type=="Cash in":
-        st.session_state.balance+=amount
-    else:
-        st.session_state.balance-=amount
+
+        st.session_state.expenses.append(new_expense)
+        st.success(f"Added:₹{amount} for {category} on {expense_date}")
+    except ValueError:
+        st.error("Please enter a valid amount.")
 
 
-    st.session_state.expenses.append(new_expense)
-    st.success(f"Added:₹{amount} for {category} on {expense_date}")
 
 if st.session_state.expenses:
     df=pd.DataFrame(st.session_state.expenses)

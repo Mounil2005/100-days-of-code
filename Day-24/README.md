@@ -17,3 +17,23 @@ This tool is perfect for quick data sanity checks before deeper analysis or mode
 Screenshot:
 [!Screenshot][image2.png]
 [!Screenshot][image.png]
+
+⚙️ Dependencies
+Python 3.7+
+
+streamlit
+
+pandas
+
+matplotlib
+
+🧠 Concepts Used
+Pandas for data handling and cleaning
+
+Matplotlib for plotting
+
+Streamlit for UI and interactivity
+
+Data caching for performance
+
+

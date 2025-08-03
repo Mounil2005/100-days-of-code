@@ -12,12 +12,12 @@ st.caption("Split, Merge, and Convert PDFs to Audio — all in one place!")
 # Sidebar navigation
 tool = st.sidebar.radio(
     "Choose a Tool:",
-    ["🔪 Split PDF", "🗃️ Merge PDFs", "🎧 PDF to Audio"]
+    [" Split PDF", "Merge PDFs", "PDF to Audio"]
 )
 
 # 1. PDF Splitter
-if tool == "🔪 Split PDF":
-    st.header("🔪 Split PDF")
+if tool == "Split PDF":
+    st.header("plit PDF")
     uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
     
     if uploaded_file:
@@ -41,8 +41,8 @@ if tool == "🔪 Split PDF":
             st.download_button("📥 Download Split PDF", output, file_name="split.pdf", mime="application/pdf")
 
 # 2. PDF Merger
-elif tool == "🗃️ Merge PDFs":
-    st.header("🗃️ Merge PDFs")
+elif tool == " Merge PDFs":
+    st.header(" Merge PDFs")
     uploads = st.file_uploader("📤 Upload PDFs", type="pdf", accept_multiple_files=True)
 
     if uploads:

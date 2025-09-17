@@ -1,0 +1,1 @@
+From Day 45 to Day 60, I focused on contributing to open-source projects as part of my 100 Days of Code challenge
